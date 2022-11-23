@@ -1,0 +1,13 @@
+name: 'Hello World'
+description: 'Test javascript action'
+inputs:
+  repo:  
+    description: 'repository name'
+    required: true
+
+outputs:
+  customData: 
+    description: 'some custom data from a 3rd party api'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

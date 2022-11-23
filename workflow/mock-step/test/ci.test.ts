@@ -6,7 +6,7 @@ let github: MockGithub;
 beforeEach(async () => {
   github = new MockGithub({
     repo: {
-      actJS: {
+      mockStep: {
         files: [
           {
             src: path.resolve(__dirname, "..", ".github"),
@@ -44,8 +44,8 @@ afterEach(async () => {
 });
 
 test("publish workflow", async () => {
-  const act = new Act(github.repo.getPath("actJS"));
-  const result = await act.setSecret("NPM_TOKEN", "fake_token").runJob("build", {
+  const act = new Act(github.repo.getPath("mockStep"));
+  const result = await act.setSecret("NPM_TOKEN", "fake_token").runEvent("workflow_dispatch", {
     mockSteps: {
       build: [
         {

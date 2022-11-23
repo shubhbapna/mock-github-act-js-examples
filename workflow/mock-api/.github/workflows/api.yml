@@ -1,0 +1,13 @@
+name: Api
+
+on: push
+
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: api call
+        run: |
+          result=$(curl -s http://google.com)
+          echo "$result"

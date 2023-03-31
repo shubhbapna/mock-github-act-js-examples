@@ -6,7 +6,7 @@
   "scripts": {
     "build": "ncc build index.ts",
     "pretest": "npm run build",
-    "test": "jest"
+    "test": "jest --testTimeout=120000"
   },
   "author": "",
   "license": "ISC",

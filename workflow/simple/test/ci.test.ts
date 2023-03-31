@@ -28,7 +28,7 @@ afterEach(async () => {
 
 test("test workflow", async () => {
   const act = new Act(mockGithub.repo.getPath("testRepo"));
-  const result = await act.runEvent("pull_request");
+  const result = await act.runEvent("pull_request", {logFile: process.env.ACT_LOG ? "simple.log" : undefined});
 
   expect(result).toStrictEqual([
     { name: "Main actions/checkout@v2", status: 0, output: "" },

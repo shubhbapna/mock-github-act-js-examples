@@ -46,6 +46,7 @@ afterEach(async () => {
 test("publish workflow", async () => {
   const act = new Act(github.repo.getPath("mockStep"));
   const result = await act.setSecret("NPM_TOKEN", "fake_token").runEvent("workflow_dispatch", {
+    logFile: process.env.ACT_LOG ? "mock-step.log" : undefined,
     mockSteps: {
       build: [
         {

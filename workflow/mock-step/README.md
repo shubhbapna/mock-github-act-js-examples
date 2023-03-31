@@ -2,6 +2,21 @@
 
 This directory contains a simple workflow that used to publish an npm package
 
+## Running tests
+
+Without log file
+
+```
+npm test
+```
+
+With log file
+
+```
+ACT_LOG=true npm test
+```
+The above produces a log file called `mock-step.log`
+
 ## Testing Strategy
 
 Clearly we don't want to actually publish our npm package when testing our workflow. In this case we will mock the step to avoid running `npm publish`

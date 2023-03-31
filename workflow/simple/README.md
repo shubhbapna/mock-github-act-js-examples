@@ -2,6 +2,21 @@
 
 This directory contains a simple workflow that checks out the directory and runs some commands
 
+## Running tests
+
+Without log file
+
+```
+npm test
+```
+
+With log file
+
+```
+ACT_LOG=true npm test
+```
+The above produces a log file called `simple.log`
+
 ## Testing Strategy
 
 We are going to test this by running this workflow in a clean, safe local git repository

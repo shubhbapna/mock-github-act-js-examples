@@ -2,6 +2,21 @@
 
 This directory contains a simple workflow that uses curl to make an "api" call
 
+## Running tests
+
+Without log file
+
+```
+npm test
+```
+
+With log file
+
+```
+ACT_LOG=true npm test
+```
+The above produces a log file called `mock-api.log`
+
 ## Testing Strategy
 
 Sometimes our api's might have strict rate limits or might return dynamically data. To avoid all this we will mock this api call

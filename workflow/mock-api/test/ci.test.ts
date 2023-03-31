@@ -1,5 +1,5 @@
-import { Act } from "@kie/act-js";
-import { Mockapi, MockGithub } from "@kie/mock-github";
+import { Act, Mockapi } from "@kie/act-js";
+import { MockGithub } from "@kie/mock-github";
 import path from "path";
 
 let github: MockGithub;
@@ -46,6 +46,7 @@ test("api workflow", async () => {
 
   const act = new Act(github.repo.getPath("mockApi"));
   const result = await act.runEvent("push", {
+    logFile: process.env.ACT_LOG ? "mock-api.log" : undefined,
     mockApi: [
       mockapi.mock.google.root
         .get()

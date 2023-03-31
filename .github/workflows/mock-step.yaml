@@ -1,0 +1,15 @@
+name: PR Check mock-step
+
+on: 
+  pull_request:
+    paths:
+      - 'workflow/mock-step/**'
+
+jobs:
+  mock-step-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/run-tests
+        with:
+          directory: workflow/mock-step

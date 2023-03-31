@@ -1,0 +1,15 @@
+name: PR Check javascript
+
+on: 
+  pull_request:
+    paths:
+      - 'custom-actions/javascript/**'
+
+jobs:
+  javascript-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/run-tests
+        with:
+          directory: custom-actions/javascript

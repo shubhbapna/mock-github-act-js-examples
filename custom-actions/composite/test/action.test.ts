@@ -30,14 +30,14 @@ afterEach(async () => {
 
 test("test workflow", async () => {
   const act = new Act(mockGithub.repo.getPath("testCompositeAction"));
-  const result = await act.runEvent("push");
+  const result = await act.runEvent("push", {logFile: process.env.ACT_LOG ? "composite.log" : undefined});
 
   expect(result.length).toBe(7);
   expect(result).toMatchObject([
     { name: "Main actions/checkout@v3", status: 0, output: "" },
     { name: "Main ./testCompositeAction", status: 0, output: "" },
     {
-      name: "Main echo Hello ${{ inputs.who-to-greet }}.",
+      name: "Main print hello",
       status: 0,
       output: "Hello Mona the Octocat.",
     },
@@ -47,12 +47,12 @@ test("test workflow", async () => {
       output: "",
     },
     {
-      name: 'Main echo "${{ github.action_path }}" >> $GITHUB_PATH',
+      name: 'Main add action path',
       status: 0,
       output: "",
     },
     {
-      name: "Main echo random-number ${{ steps.foo.outputs.random-number }}",
+      name: "Main print random-number",
       status: 0,
       output: expect.stringMatching(/random-number \d*/),
     },

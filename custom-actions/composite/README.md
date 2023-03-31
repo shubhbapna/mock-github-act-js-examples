@@ -2,6 +2,21 @@
 
 This is a simple composite action taken from the [Github docs](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file). You can take a look at what it does in [action.yml](action.yml)
 
+## Running tests
+
+Without log file
+
+```
+npm test
+```
+
+With log file
+
+```
+ACT_LOG=true npm test
+```
+The above produces a log file called `composite.log`
+
 ## Testing Strategy
 
 We are going to test this by running this custom action in a workflow inside a local git repository.  

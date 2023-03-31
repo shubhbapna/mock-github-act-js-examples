@@ -39,7 +39,7 @@ afterEach(async () => {
 
 test("test workflow", async () => {
   const act = new Act(mockGithub.repo.getPath("testDockerAction"));
-  const result = await act.runEvent("push");
+  const result = await act.runEvent("push", {logFile: process.env.ACT_LOG ? "docker.log" : undefined});
 
   expect(result.length).toBe(3);
   expect(result).toMatchObject([

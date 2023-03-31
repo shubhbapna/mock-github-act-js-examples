@@ -2,6 +2,21 @@
 
 From the [action.yml](action.yml) file we can see that this action will take a single input - the name of the repository and execute the `index.js` file inside the `dist` directory. This `index.js` file is produced by compiling the [index.ts](index.ts). On running `index.ts` the `run` function is executed which fetches the full name of the repo name we gave as input to the action and prints it. It also sets the output to some custom data gotten from a 3rd party api.
 
+## Running tests
+
+Without log file
+
+```
+npm test
+```
+
+With log file
+
+```
+ACT_LOG=true npm test
+```
+The above produces a log file called `javascript.log`
+
 ## Testing Strategy
 
 While testing we don't want to hit the actual github api or the 3rd party api because it might have strict rate limits or might return dynamic data which will change the result of our test each time we run it.

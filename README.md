@@ -17,3 +17,7 @@ This repository contains examples on how you can use [mock-github](https://githu
 - [Simple](workflow/simple/README.md)
 - [Mock step](workflow/mock-step/README.md)
 - [Mock api](workflow/mock-api/README.md)
+
+## Advance examples
+- [e2e tests](https://github.com/kiegroup/github-action-build-chain/tree/main/test/e2e)
+- [e2e regression tests](https://github.com/kiegroup/github-action-build-chain/tree/main/test/e2e-regression)

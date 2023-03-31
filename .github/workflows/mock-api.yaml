@@ -1,0 +1,15 @@
+name: PR Check mock-api
+
+on: 
+  pull_request:
+    paths:
+      - 'workflow/mock-api/**'
+
+jobs:
+  mock-api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/run-tests
+        with:
+          directory: workflow/mock-api

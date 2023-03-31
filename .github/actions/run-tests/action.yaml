@@ -1,0 +1,23 @@
+name: 'Run tests'
+description: 'Run tests in a given directory'
+inputs:
+  directory:
+    description: "the directory in which you want to run your tests int"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Install packages
+      working-directory: ${{ inputs.directory }}
+      run: npm ci
+      shell: bash
+      
+    - name: Test
+      working-directory: ${{ inputs.directory }}
+      run: npm test
+      shell: bash

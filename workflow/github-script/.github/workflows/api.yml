@@ -1,0 +1,21 @@
+name: workflow
+
+on: push
+
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        name: octokit-script-without-query
+        with:
+          github-token: token
+          result-encoding: string
+          script: |
+            const { owner, repo } = context.repo;
+            const { data } = await github.rest.repos.get({
+              owner,
+              repo
+            });
+            console.log(data.full_name);
+            return data.full_name;

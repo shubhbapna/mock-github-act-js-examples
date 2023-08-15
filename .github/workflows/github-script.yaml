@@ -1,0 +1,15 @@
+name: PR Check github-script
+
+on: 
+  pull_request:
+    paths:
+      - 'workflow/github-script/**'
+
+jobs:
+  github-script-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/run-tests
+        with:
+          directory: workflow/github-script
